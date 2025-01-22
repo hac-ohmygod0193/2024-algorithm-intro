@@ -188,19 +188,6 @@ long long cost(const map<long long , set<long long > > &team_servers) {
 
     return total_cost;
 }
-void print(vector<merged_agent> &merged_agents){
-    for(long long i=0;i<merged_agents.size();i++){
-        cout << "merged agent id: " << merged_agents[i].id << " size: " << merged_agents[i].size << " mem: " << merged_agents[i].mem << " teamid: ";
-        for(long long x : merged_agents[i].teamid){
-            cout << x << " ";
-        }
-        cout << " childs: ";
-        for(long long x : merged_agents[i].childs){
-            cout << x << " ";
-        }
-        cout << endl;
-    }
-}
 
 
 
@@ -226,11 +213,11 @@ void solve(answer &ans, vector<agent> agents, vector<merged_agent> clean_agents,
                 }
             }
             total_cost = cost(team_servers);
-            cout<<"----------------"<<endl;
-            cout<<"mode="<<mode<<endl;
-            cout<<"total_cost="<<total_cost<<endl;
-            cout<<"k="<<k<<endl;
-            cout<<"----------------"<<endl;
+            //cout<<"----------------"<<endl;
+            //cout<<"mode="<<mode<<endl;
+            //cout<<"total_cost="<<total_cost<<endl;
+            //cout<<"k="<<k<<endl;
+            //cout<<"----------------"<<endl;
             if(ans.hasanswer==false){
                 ans.hasanswer = true;
                 ans.k = k;
@@ -292,11 +279,11 @@ void greedy(answer &ans, vector<agent> agents, long long memory_limit){
         }
     }
     long long total_cost = cost(team_servers);
-    cout<<"----------------"<<endl;
-    cout<<"mode=greedy"<<endl;
-    cout<<"total_cost="<<total_cost<<endl;
-    cout<<"k="<<servers.size()<<endl;
-    cout<<"----------------"<<endl;
+    //cout<<"----------------"<<endl;
+    //cout<<"mode=greedy"<<endl;
+    //cout<<"total_cost="<<total_cost<<endl;
+    //cout<<"k="<<servers.size()<<endl;
+    //cout<<"----------------"<<endl;
     if(ans.hasanswer==false){
         ans.hasanswer = true;
         ans.k = servers.size();
@@ -391,9 +378,6 @@ int main(int argc, char* argv[]){
         cerr << "Unable to open file";
         exit(1);
     }
-    if(flag){
-        cout<<"Time Out\n";
-    }
     outputFile<<ans.total_cost<<endl;
     outputFile<<ans.k<<endl;
     for(long long i=0;i<ans.agent_serverids.size();i++){
@@ -401,5 +385,5 @@ int main(int argc, char* argv[]){
     }
     outputFile.close();
     inputFile.close();
-    cout<<"time="<<((clock()-st)/CLOCKS_PER_SEC)/60<<endl;
+    //cout<<"time="<<((clock()-st)/CLOCKS_PER_SEC)/60<<endl;
 }
